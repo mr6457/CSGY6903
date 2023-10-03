@@ -8,13 +8,9 @@
 #shall give the same results. Remember, the code shall be more general, not just in this case. Submit both
 #results.
 
-
-
 ls = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-
 #Ciphertext = QJKESREOGHGXXREOXEO
-
 #Known encrypted pairs
 #  T -> H ; O -> E
 

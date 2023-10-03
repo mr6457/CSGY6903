@@ -5,10 +5,6 @@
 # Let us assume the plaintext is made of 26 capital letters only. So, the n=26.
 #Given the affine cipher c = 5p + 9 mod 26, what is the ciphertext for the plaintext “CRYPTOISFUN”.
 
-
-
-
-
 def affine(a,b,plaintext):
     plaintext = plaintext.upper()
     letterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
