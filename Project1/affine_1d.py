@@ -1,20 +1,26 @@
 # c = (ax + b) mod 26
-# T -> H ; O -> E
 # https://en.wikipedia.org/wiki/Affine_cipher
 # https://crypto.stackexchange.com/questions/25568/affine-cipher-calculate-the-key-from-a-known-plaintext-ciphertext-pair
 # https://math.stackexchange.com/questions/2118060/affine-cipher-finding-the-decryption-map
-# solve a
+#Eve has the ciphertext “QJKESREOGHGXXREOXEO”. She magically knows the cipher is an
+#affine cipher and the letter T is encrypted to H and O to E. Recover the decryption function and decipher
+#the message. Students can solve it manually. They can also solve it by a computer program. They both
+#shall give the same results. Remember, the code shall be more general, not just in this case. Submit both
+#results.
 
-ciphertext = "QJKESREOGHGXXREOXEO"
+
+
 ls = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
-def affine(a,b,plaintext):
-    plaintext = plaintext.upper()
-    ciphertext = ""
-    for letter in plaintext:
-        c = (a * ls.index(letter) + b ) % 26
-        ciphertext+=ls[c]
-    return(ciphertext)
+
+#Ciphertext = QJKESREOGHGXXREOXEO
+
+#Known encrypted pairs
+#  T -> H ; O -> E
+
+ciphertext = "QJKESREOGHGXXREOXEO"
+knownpair1 = ['T','H']
+knownpair2 = ['O','E']
 
 def affine_dec(a,b,ciphertext):
     ciphertext = ciphertext.upper()
@@ -29,13 +35,11 @@ def affine_dec(a,b,ciphertext):
     return(plaintext)
 
 
-
-
 for a in range(26):
-    if ( ( (ls.index("T") - ls.index("O")) * a) % 26 == ls.index("H") - ls.index("E")  ):
+    if ( ( (ls.index(knownpair1[0]) - ls.index(knownpair2[0])) * a) % 26 == ls.index(knownpair1[1]) - ls.index(knownpair2[1])  ):
         print(f"a = {a}")
         for b in range(26):
-            if ( ls.index("H") == ( a * ls.index("T") + b ) % 26 ): 
+            if ( ls.index(knownpair1[1]) == ( a * ls.index(knownpair1[0]) + b ) % 26 ): 
                 print(f"b = {b}")
                 print(affine_dec(a,b,ciphertext)) 
 
