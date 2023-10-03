@@ -1,0 +1,5 @@
+# 
+
+ciphertext = "TNFOSFOZSWPZLOCGQAOZWAGQRPJZPNABCZPQDOGRAMTHARAXTBAGZJOGMTHARAVAPZW"
+
+key = "etoramishbunvygkwfcdlzzzzz"
